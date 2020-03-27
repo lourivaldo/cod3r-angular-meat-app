@@ -27,12 +27,12 @@
         </div>
         <div class="col-sm-3 col-xs-6">
           <mt-input-container errorMessage="Número obrigatório e somente numeros" label="Número">
-            <input class="form-control" name="number" ngModel required pattern="/^[0-9]*$" minlength="2" autocomplete="off" placeholder="Número">
+            <input class="form-control" name="number" ngModel required ppattern="/^[0-9]*$/" minlength="2" autocomplete="off" placeholder="Número">
           </mt-input-container>
         </div>
         <div class="col-sm-3 col-xs-6">
           <mt-input-container label="Complemento">
-            <input class="form-control" name="optional" ngModel autocomplete="off" placeholder="Complemento">
+            <input class="form-control" name="optionalAddress" ngModel autocomplete="off" placeholder="Complemento">
           </mt-input-container>
         </div>
         <!-- /.col -->
@@ -44,51 +44,14 @@
         <div class="col-xs-12">
           <p class="lead">Itens do Pedido:</p>
         </div>
-        <div class="col-xs-12 table-responsive">
 
-          <table class="table table-striped">
-            <thead>
-            <tr>
-              <th class="text-center">Quantidade</th>
-              <th>Item</th>
-              <th>Descrição</th>
-              <th class="text-right">Subtotal</th>
-              <th class="text-right"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td class="text-center">
-                <a class="btn btn-sm"><i class="fa fa-minus"></i></a>
-                1
-                <a class="btn btn-sm"><i class="fa fa-plus"></i></a>
-              </td>
-              <td>Cup Cake</td>
+        <mt-order-items
+          [items]="cartItems()"
+          (increaseQuantity)="increaseQuantity($event)"
+          (decreaseQuantity)="decreaseQuantity($event)"
+          (remove)="remove($event)">
+        </mt-order-items>
 
-              <td>Recheado com doce de leite</td>
-              <td class="text-right">R$ 10,00</td>
-              <td class="text-right">
-                <a class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">
-                <a class="btn btn-sm"><i class="fa fa-minus"></i></a>
-                1
-                <a class="btn btn-sm"><i class="fa fa-plus"></i></a>
-              </td>
-              <td>Croissant</td>
-
-              <td>Recheado com presunto e queijo</td>
-              <td class="text-right">R$ 10,00</td>
-              <td class="text-right">
-                <a class="btn btn-sm danger "><i class="fa fa-remove"></i></a>
-              </td>
-            </tr>
-
-            </tbody>
-          </table>
-        </div>
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -99,9 +62,7 @@
           <p class="lead">Formas de Pagamento:</p>
 
           <div class="form-group">
-
             <mt-radio [options]="paymentOptions" name="paymentOption" ngModel></mt-radio>
-
           </div>
 
         </div>
@@ -109,22 +70,7 @@
         <div class="col-sm-6 col-xs-12">
           <p class="lead">Frete e Total:</p>
 
-          <div class="table-responsive">
-            <table class="table">
-              <tbody><tr>
-                <th style="width:50%">Itens:</th>
-                <td class="text-right">R$ 20,00</td>
-              </tr>
-              <tr>
-                <th>Frete:</th>
-                <td class="text-right">R$ 8,00</td>
-              </tr>
-              <tr>
-                <th>Total:</th>
-                <td class="text-right">R$ 28,00</td>
-              </tr>
-              </tbody></table>
-          </div>
+          <mt-delivery-costs [delivery]="delivery" [itemsValue]="itemsValue()"></mt-delivery-costs>
         </div>
         <!-- /.col -->
       </div>
@@ -133,7 +79,7 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <button href="order-summary.html" class="btn btn-success pull-right" [disabled]="form.invalid"><i class="fa fa-credit-card"></i> Concluir Pedido
+        <button (click)="checkOrder(form.value)" class="btn btn-success pull-right" [disabled]="form.invalid || cartItems().length === 0"><i class="fa fa-credit-card"></i> Concluir Pedido
         </button>
       </div>
     </div>

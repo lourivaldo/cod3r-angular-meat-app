@@ -370,5 +370,27 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "address": "234234234",
+      "number": "234234234",
+      "optionalAddress": "234234",
+      "paymentOption": "MON",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "zlasagna"
+        },
+        {
+          "quantity": 1,
+          "menuId": "greensandwich"
+        },
+        {
+          "quantity": 1,
+          "menuId": "ceasar"
+        }
+      ],
+      "id": 1
+    }
+  ]
 }
