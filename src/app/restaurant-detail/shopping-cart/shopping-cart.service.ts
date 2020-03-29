@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
 import {MenuItem} from '../menu-item/menu-item.model';
 import {CartItem} from './cart-item.model';
 
