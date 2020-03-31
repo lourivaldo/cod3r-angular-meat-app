@@ -10,12 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/filter';
 import { MEAT_API } from '../../app.api';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 var LoginService = (function () {
     function LoginService(http, router) {
+        var _this = this;
         this.http = http;
         this.router = router;
+        this.router.events
+            .filter(function (e) { return e instanceof NavigationEnd; })
+            .subscribe(function (e) { return _this.lastUrl = e.url; });
     }
     LoginService.prototype.isLoggedIn = function () {
         return this.user !== undefined;
@@ -26,7 +31,12 @@ var LoginService = (function () {
             .post(MEAT_API + "/login", { email: email, password: password })
             .do(function (user) { return _this.user = user; });
     };
+    LoginService.prototype.logout = function () {
+        this.user = undefined;
+        this.handleLogin();
+    };
     LoginService.prototype.handleLogin = function (path) {
+        if (path === void 0) { path = this.lastUrl; }
         this.router.navigate(['/login', btoa(path)]);
     };
     return LoginService;

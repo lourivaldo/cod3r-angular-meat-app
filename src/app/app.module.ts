@@ -21,6 +21,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './secutiry/login/login.component';
+import { UserDetailComponent } from './header/user-detail/user-detail.component';
 // import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
@@ -39,6 +40,7 @@ import { LoginComponent } from './secutiry/login/login.component';
     OrderSummaryComponent,
     NotFoundComponent,
     LoginComponent,
+    UserDetailComponent,
   ],
   imports: [
     BrowserModule,
