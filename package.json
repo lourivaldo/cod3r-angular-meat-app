@@ -6,6 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:backend": "nodemon --watch backend backend/dist/server",
     "build:prod": "ng build --prod",
     "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
     "test": "ng test",
@@ -34,6 +35,8 @@
     "zone.js": "0.8.16"
   },
   "devDependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "json-server": "^0.16.1",
     "@angular/cli": "1.2.7",
     "@angular/compiler-cli": "4.0.0",
     "@types/jasmine": "2.5.38",
