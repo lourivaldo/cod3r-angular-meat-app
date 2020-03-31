@@ -10,6 +10,7 @@ import {OrderService} from '../order/order.service';
 import {LoginService} from '../secutiry/login/login.service';
 import {NotificationService} from './messages/notification.service';
 import {LoggedInGuard} from '../secutiry/loggedin.guard';
+import {LeaveOrderGuard} from '../order/leave-order.guard';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ export class SharedModule {
         LoginService,
         NotificationService,
         LoggedInGuard,
+        LeaveOrderGuard,
       ]
     };
   }

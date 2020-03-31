@@ -4,6 +4,7 @@ import {OrderService} from './order.service';
 import {CartItem} from '../restaurant-detail/shopping-cart/cart-item.model';
 import {Order, OrderItem} from './order.model';
 import {Router} from '@angular/router';
+import 'rxjs/add/operator/do';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -14,6 +15,8 @@ export class OrderComponent implements OnInit {
 
   emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   numberPattern = /^[0-9]*$/;
+
+  orderId: string;
 
   orderForm: FormGroup;
 
@@ -82,11 +85,15 @@ export class OrderComponent implements OnInit {
 
     this.orderService
       .checkOrder(order)
+      .do((orderId) => this.orderId = orderId)
       .subscribe((orderId: string) => {
-        console.log(`orderId ${orderId}`);
         this.orderService.clear();
         this.router.navigate(['/order-summary']);
     });
+  }
+
+  isOrderCompleted(): boolean {
+    return this.orderId !== undefined;
   }
 
 }

@@ -10,8 +10,9 @@ import { OrderItemsComponent } from './order-items/order-items.component';
 import { DeliveryCostsComponent } from './delivery-costs/delivery-costs.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { LeaveOrderGuard } from './leave-order.guard';
 var ROUTES = [
-    { path: '', component: OrderComponent }
+    { path: '', component: OrderComponent, canDeactivate: [LeaveOrderGuard] }
 ];
 var OrderModule = (function () {
     function OrderModule() {
