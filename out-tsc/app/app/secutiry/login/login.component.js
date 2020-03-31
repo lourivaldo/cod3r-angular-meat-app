@@ -25,14 +25,14 @@ var LoginComponent = (function () {
             email: this.fb.control('', [Validators.required, Validators.email]),
             password: this.fb.control('', [Validators.required]),
         });
-        this.navigateTo = this.activatedRoute.snapshot.params['redirect'] || '/';
+        this.navigateTo = this.activatedRoute.snapshot.params['redirect'] || btoa('/');
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
         this.loginService
             .login(this.loginForm.value.email, this.loginForm.value.password)
             .subscribe(function (user) { return _this.notificationService.notify("Bem vindo, " + user.name); }, function (response) { return _this.notificationService.notify(response.error.message); }, function () {
-            _this.router.navigate([_this.navigateTo]);
+            _this.router.navigate([atob(_this.navigateTo)]);
         });
     };
     return LoginComponent;

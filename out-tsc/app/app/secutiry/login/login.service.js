@@ -27,7 +27,7 @@ var LoginService = (function () {
             .do(function (user) { return _this.user = user; });
     };
     LoginService.prototype.handleLogin = function (path) {
-        this.router.navigate(['/login', path]);
+        this.router.navigate(['/login', btoa(path)]);
     };
     return LoginService;
 }());

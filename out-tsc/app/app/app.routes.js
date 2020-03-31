@@ -20,7 +20,7 @@ export var ROUTES = [
     },
     { path: 'restaurants', component: RestaurantsComponent },
     // {path: 'order', component: OrderComponent},
-    { path: 'order', loadChildren: './order/order.module#OrderModule', canLoad: [LoggedInGuard] },
+    { path: 'order', loadChildren: './order/order.module#OrderModule', canLoad: [LoggedInGuard], canActivate: [LoggedInGuard] },
     { path: 'order-summary', component: OrderSummaryComponent },
     { path: 'about', loadChildren: './about/about.module#AboutModule' },
     { path: '**', component: NotFoundComponent },
