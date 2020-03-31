@@ -38,7 +38,7 @@
     "jsonwebtoken": "^8.5.1",
     "json-server": "^0.16.1",
     "@angular/cli": "1.2.7",
-    "@angular/compiler-cli": "4.0.0",
+    "@angular/compiler-cli": "4.3.3",
     "@types/jasmine": "2.5.38",
     "@types/node": "7.0.5",
     "codelyzer": "2.0.0",
