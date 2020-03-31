@@ -15,6 +15,7 @@ import { RestaurantsService } from '../restaurants/restaurants.service';
 import { OrderService } from '../order/order.service';
 import { LoginService } from '../secutiry/login/login.service';
 import { NotificationService } from './messages/notification.service';
+import { LoggedInGuard } from '../secutiry/loggedin.guard';
 var SharedModule = SharedModule_1 = (function () {
     function SharedModule() {
     }
@@ -27,6 +28,7 @@ var SharedModule = SharedModule_1 = (function () {
                 OrderService,
                 LoginService,
                 NotificationService,
+                LoggedInGuard,
             ]
         };
     };

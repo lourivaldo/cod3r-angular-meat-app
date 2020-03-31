@@ -11,24 +11,28 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { NotificationService } from '../../shared/messages/notification.service';
+import { ActivatedRoute, Router } from '@angular/router';
 var LoginComponent = (function () {
-    function LoginComponent(fb, loginService, notificationService) {
+    function LoginComponent(fb, loginService, notificationService, activatedRoute, router) {
         this.fb = fb;
         this.loginService = loginService;
         this.notificationService = notificationService;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
     }
     LoginComponent.prototype.ngOnInit = function () {
         this.loginForm = this.fb.group({
             email: this.fb.control('', [Validators.required, Validators.email]),
             password: this.fb.control('', [Validators.required]),
         });
+        this.navigateTo = this.activatedRoute.snapshot.params['redirect'] || '/';
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
         this.loginService
             .login(this.loginForm.value.email, this.loginForm.value.password)
-            .subscribe(function (user) { return _this.notificationService.notify("Bem vindo, " + user.name); }, function (response) {
-            _this.notificationService.notify(response.error.message);
+            .subscribe(function (user) { return _this.notificationService.notify("Bem vindo, " + user.name); }, function (response) { return _this.notificationService.notify(response.error.message); }, function () {
+            _this.router.navigate([_this.navigateTo]);
         });
     };
     return LoginComponent;
@@ -40,7 +44,9 @@ LoginComponent = __decorate([
     }),
     __metadata("design:paramtypes", [FormBuilder,
         LoginService,
-        NotificationService])
+        NotificationService,
+        ActivatedRoute,
+        Router])
 ], LoginComponent);
 export { LoginComponent };
 //# sourceMappingURL=login.component.js.map
