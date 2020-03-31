@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 import { ShoppingCartService } from '../restaurant-detail/shopping-cart/shopping-cart.service';
 import { RestaurantsService } from '../restaurants/restaurants.service';
 import { OrderService } from '../order/order.service';
+import { LoginService } from '../secutiry/login/login.service';
+import { NotificationService } from './messages/notification.service';
 var SharedModule = SharedModule_1 = (function () {
     function SharedModule() {
     }
@@ -23,6 +25,8 @@ var SharedModule = SharedModule_1 = (function () {
                 ShoppingCartService,
                 RestaurantsService,
                 OrderService,
+                LoginService,
+                NotificationService,
             ]
         };
     };

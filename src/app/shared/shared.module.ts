@@ -7,6 +7,8 @@ import {CommonModule} from '@angular/common';
 import {ShoppingCartService} from '../restaurant-detail/shopping-cart/shopping-cart.service';
 import {RestaurantsService} from '../restaurants/restaurants.service';
 import {OrderService} from '../order/order.service';
+import {LoginService} from '../secutiry/login/login.service';
+import {NotificationService} from './messages/notification.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,6 @@ import {OrderService} from '../order/order.service';
     InputComponent,
     RadioComponent,
     RatingComponent,
-
     // Exportar aqui evita a importacao no modulo que ira usar
     CommonModule,
     FormsModule,
@@ -38,6 +39,8 @@ export class SharedModule {
         ShoppingCartService,
         RestaurantsService,
         OrderService,
+        LoginService,
+        NotificationService,
       ]
     };
   }
