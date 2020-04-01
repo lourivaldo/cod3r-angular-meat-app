@@ -24,6 +24,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './secutiry/login/login.component';
 import { UserDetailComponent } from './header/user-detail/user-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 var AppModule = (function () {
     function AppModule() {
@@ -51,6 +52,7 @@ AppModule = __decorate([
         ],
         imports: [
             BrowserModule,
+            BrowserAnimationsModule,
             HttpClientModule,
             SharedModule.forRoot(),
             RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),

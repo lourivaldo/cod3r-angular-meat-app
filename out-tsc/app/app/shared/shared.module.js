@@ -17,6 +17,8 @@ import { LoginService } from '../secutiry/login/login.service';
 import { NotificationService } from './messages/notification.service';
 import { LoggedInGuard } from '../secutiry/loggedin.guard';
 import { LeaveOrderGuard } from '../order/leave-order.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../secutiry/auth.interceptor';
 var SharedModule = SharedModule_1 = (function () {
     function SharedModule() {
     }
@@ -31,6 +33,7 @@ var SharedModule = SharedModule_1 = (function () {
                 NotificationService,
                 LoggedInGuard,
                 LeaveOrderGuard,
+                { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
             ]
         };
     };
