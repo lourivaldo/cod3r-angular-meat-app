@@ -19,6 +19,7 @@ import { LoggedInGuard } from '../secutiry/loggedin.guard';
 import { LeaveOrderGuard } from '../order/leave-order.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../secutiry/auth.interceptor';
+import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 var SharedModule = SharedModule_1 = (function () {
     function SharedModule() {
     }
@@ -45,6 +46,7 @@ SharedModule = SharedModule_1 = __decorate([
             InputComponent,
             RadioComponent,
             RatingComponent,
+            SnackbarComponent,
         ],
         imports: [
             CommonModule,
@@ -55,6 +57,7 @@ SharedModule = SharedModule_1 = __decorate([
             InputComponent,
             RadioComponent,
             RatingComponent,
+            SnackbarComponent,
             // Exportar aqui evita a importacao no modulo que ira usar
             CommonModule,
             FormsModule,

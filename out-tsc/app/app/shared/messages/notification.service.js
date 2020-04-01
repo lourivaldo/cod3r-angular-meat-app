@@ -7,12 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 var NotificationService = (function () {
     function NotificationService() {
+        this.notifier = new EventEmitter();
     }
     NotificationService.prototype.notify = function (message) {
-        alert(message);
+        this.notifier.emit(message);
     };
     return NotificationService;
 }());

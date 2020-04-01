@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable } from '@angular/core';
 import { CartItem } from './cart-item.model';
+import { NotificationService } from '../../shared/messages/notification.service';
 var ShoppingCartService = (function () {
-    function ShoppingCartService() {
+    function ShoppingCartService(notificationService) {
+        this.notificationService = notificationService;
         this.items = [];
     }
     ShoppingCartService.prototype.clear = function () {
@@ -24,6 +26,7 @@ var ShoppingCartService = (function () {
         else {
             this.items.push(new CartItem(item));
         }
+        this.notificationService.notify("Voc\u00EA adicionou o item " + item.name);
     };
     ShoppingCartService.prototype.increaseQuantity = function (item) {
         item.quantity++;
@@ -36,6 +39,7 @@ var ShoppingCartService = (function () {
     };
     ShoppingCartService.prototype.removeItem = function (item) {
         this.items.splice(this.items.indexOf(item), 1);
+        this.notificationService.notify("Voc\u00EA removeu o item " + item.menuItem.name);
     };
     ShoppingCartService.prototype.total = function () {
         return this.items
@@ -46,7 +50,7 @@ var ShoppingCartService = (function () {
 }());
 ShoppingCartService = __decorate([
     Injectable(),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [NotificationService])
 ], ShoppingCartService);
 export { ShoppingCartService };
 //# sourceMappingURL=shopping-cart.service.js.map
