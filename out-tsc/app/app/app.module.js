@@ -5,7 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID, ErrorHandler } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { PreloadAllModules, RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
@@ -25,6 +25,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './secutiry/login/login.component';
 import { UserDetailComponent } from './header/user-detail/user-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppErrorHandler } from './app.error-handler';
 // import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 var AppModule = (function () {
     function AppModule() {
@@ -59,7 +60,8 @@ AppModule = __decorate([
         ],
         providers: [
             // {provide: LocationStrategy, useClass: HashLocationStrategy},
-            { provide: LOCALE_ID, useValue: 'pt-BR' }
+            { provide: LOCALE_ID, useValue: 'pt-BR' },
+            { provide: ErrorHandler, useClass: AppErrorHandler },
         ],
         bootstrap: [AppComponent]
     })
