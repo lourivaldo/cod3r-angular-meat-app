@@ -8,8 +8,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 var MenuItemComponent = (function () {
     function MenuItemComponent() {
+        this.menuState = 'ready';
         this.add = new EventEmitter();
     }
     MenuItemComponent.prototype.ngOnInit = function () {
@@ -31,6 +33,15 @@ MenuItemComponent = __decorate([
     Component({
         selector: 'mt-menu-item',
         templateUrl: './menu-item.component.html',
+        animations: [
+            trigger('menuItemAppeared', [
+                state('ready', style({ opacity: 1 })),
+                transition('void => ready', [
+                    style({ opacity: 0, transform: 'translateY(-20px)' }),
+                    animate('300ms 0s ease-in')
+                ])
+            ])
+        ]
     }),
     __metadata("design:paramtypes", [])
 ], MenuItemComponent);
