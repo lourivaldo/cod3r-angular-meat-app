@@ -282,3 +282,17 @@ body {
     right: 40px;
   }
 }
+
+.search-link {
+  cursor: pointer;
+  color: #555;
+}
+
+.search-link:hover {
+  color: #dd4b39;
+}
+
+.search-bar {
+  opacity: 0;
+  max-height: 0;
+}

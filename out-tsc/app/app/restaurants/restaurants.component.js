@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { RestaurantsService } from './restaurants.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 var RestaurantsComponent = (function () {
     function RestaurantsComponent(restaurantsService) {
         this.restaurantsService = restaurantsService;
+        this.searchBarState = 'hidden';
     }
     RestaurantsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -20,12 +22,29 @@ var RestaurantsComponent = (function () {
             _this.restaurants = restaurants;
         });
     };
+    RestaurantsComponent.prototype.toggleSearch = function () {
+        this.searchBarState = this.searchBarState === 'hidden' ? 'visible' : 'hidden';
+    };
     return RestaurantsComponent;
 }());
 RestaurantsComponent = __decorate([
     Component({
         selector: 'mt-restaurants',
         templateUrl: './restaurants.component.html',
+        animations: [
+            trigger('toggleSearch', [
+                state('hidden', style({
+                    opacity: 0,
+                    "max-height": "0px",
+                })),
+                state('visible', style({
+                    opacity: 1,
+                    "max-height": "70px",
+                    "margin-top": "20px",
+                })),
+                transition('* => *', animate('250ms 0s ease-in-out'))
+            ])
+        ]
     }),
     __metadata("design:paramtypes", [RestaurantsService])
 ], RestaurantsComponent);
