@@ -1,4 +1,4 @@
-var CartItem = (function () {
+var CartItem = /** @class */ (function () {
     function CartItem(menuItem, quantity) {
         if (quantity === void 0) { quantity = 1; }
         this.menuItem = menuItem;

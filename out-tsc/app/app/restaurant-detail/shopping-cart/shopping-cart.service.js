@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Injectable } from '@angular/core';
 import { CartItem } from './cart-item.model';
 import { NotificationService } from '../../shared/messages/notification.service';
-var ShoppingCartService = (function () {
+var ShoppingCartService = /** @class */ (function () {
     function ShoppingCartService(notificationService) {
         this.notificationService = notificationService;
         this.items = [];
@@ -46,11 +46,11 @@ var ShoppingCartService = (function () {
             .map(function (item) { return item.value(); })
             .reduce(function (previousValue, currentValue) { return previousValue + currentValue; }, 0);
     };
+    ShoppingCartService = __decorate([
+        Injectable(),
+        __metadata("design:paramtypes", [NotificationService])
+    ], ShoppingCartService);
     return ShoppingCartService;
 }());
-ShoppingCartService = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [NotificationService])
-], ShoppingCartService);
 export { ShoppingCartService };
 //# sourceMappingURL=shopping-cart.service.js.map

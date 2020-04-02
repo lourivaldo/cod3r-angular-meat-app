@@ -20,9 +20,10 @@ import { LeaveOrderGuard } from '../order/leave-order.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../secutiry/auth.interceptor';
 import { SnackbarComponent } from './messages/snackbar/snackbar.component';
-var SharedModule = SharedModule_1 = (function () {
+var SharedModule = /** @class */ (function () {
     function SharedModule() {
     }
+    SharedModule_1 = SharedModule;
     SharedModule.forRoot = function () {
         return {
             ngModule: SharedModule_1,
@@ -38,33 +39,33 @@ var SharedModule = SharedModule_1 = (function () {
             ]
         };
     };
+    SharedModule = SharedModule_1 = __decorate([
+        NgModule({
+            declarations: [
+                InputComponent,
+                RadioComponent,
+                RatingComponent,
+                SnackbarComponent,
+            ],
+            imports: [
+                CommonModule,
+                FormsModule,
+                ReactiveFormsModule,
+            ],
+            exports: [
+                InputComponent,
+                RadioComponent,
+                RatingComponent,
+                SnackbarComponent,
+                // Exportar aqui evita a importacao no modulo que ira usar
+                CommonModule,
+                FormsModule,
+                ReactiveFormsModule,
+            ]
+        })
+    ], SharedModule);
     return SharedModule;
+    var SharedModule_1;
 }());
-SharedModule = SharedModule_1 = __decorate([
-    NgModule({
-        declarations: [
-            InputComponent,
-            RadioComponent,
-            RatingComponent,
-            SnackbarComponent,
-        ],
-        imports: [
-            CommonModule,
-            FormsModule,
-            ReactiveFormsModule,
-        ],
-        exports: [
-            InputComponent,
-            RadioComponent,
-            RatingComponent,
-            SnackbarComponent,
-            // Exportar aqui evita a importacao no modulo que ira usar
-            CommonModule,
-            FormsModule,
-            ReactiveFormsModule,
-        ]
-    })
-], SharedModule);
 export { SharedModule };
-var SharedModule_1;
 //# sourceMappingURL=shared.module.js.map

@@ -8,18 +8,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { EventEmitter, Injectable } from '@angular/core';
-var NotificationService = (function () {
+var NotificationService = /** @class */ (function () {
     function NotificationService() {
         this.notifier = new EventEmitter();
     }
     NotificationService.prototype.notify = function (message) {
         this.notifier.emit(message);
     };
+    NotificationService = __decorate([
+        Injectable(),
+        __metadata("design:paramtypes", [])
+    ], NotificationService);
     return NotificationService;
 }());
-NotificationService = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [])
-], NotificationService);
 export { NotificationService };
 //# sourceMappingURL=notification.service.js.map

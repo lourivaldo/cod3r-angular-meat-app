@@ -18,7 +18,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs';
-var RestaurantsComponent = (function () {
+var RestaurantsComponent = /** @class */ (function () {
     function RestaurantsComponent(restaurantsService, fb) {
         this.restaurantsService = restaurantsService;
         this.fb = fb;
@@ -47,28 +47,28 @@ var RestaurantsComponent = (function () {
     RestaurantsComponent.prototype.toggleSearch = function () {
         this.searchBarState = this.searchBarState === 'hidden' ? 'visible' : 'hidden';
     };
+    RestaurantsComponent = __decorate([
+        Component({
+            selector: 'mt-restaurants',
+            templateUrl: './restaurants.component.html',
+            animations: [
+                trigger('toggleSearch', [
+                    state('hidden', style({
+                        opacity: 0,
+                        "max-height": "0px",
+                    })),
+                    state('visible', style({
+                        opacity: 1,
+                        "max-height": "70px",
+                        "margin-top": "20px",
+                    })),
+                    transition('* => *', animate('250ms 0s ease-in-out'))
+                ])
+            ]
+        }),
+        __metadata("design:paramtypes", [RestaurantsService, FormBuilder])
+    ], RestaurantsComponent);
     return RestaurantsComponent;
 }());
-RestaurantsComponent = __decorate([
-    Component({
-        selector: 'mt-restaurants',
-        templateUrl: './restaurants.component.html',
-        animations: [
-            trigger('toggleSearch', [
-                state('hidden', style({
-                    opacity: 0,
-                    "max-height": "0px",
-                })),
-                state('visible', style({
-                    opacity: 1,
-                    "max-height": "70px",
-                    "margin-top": "20px",
-                })),
-                transition('* => *', animate('250ms 0s ease-in-out'))
-            ])
-        ]
-    }),
-    __metadata("design:paramtypes", [RestaurantsService, FormBuilder])
-], RestaurantsComponent);
 export { RestaurantsComponent };
 //# sourceMappingURL=restaurants.component.js.map

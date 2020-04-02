@@ -13,7 +13,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter';
 import { MEAT_API } from '../../app.api';
 import { NavigationEnd, Router } from '@angular/router';
-var LoginService = (function () {
+var LoginService = /** @class */ (function () {
     function LoginService(http, router) {
         var _this = this;
         this.http = http;
@@ -39,12 +39,12 @@ var LoginService = (function () {
         if (path === void 0) { path = this.lastUrl; }
         this.router.navigate(['/login', btoa(path)]);
     };
+    LoginService = __decorate([
+        Injectable(),
+        __metadata("design:paramtypes", [HttpClient,
+            Router])
+    ], LoginService);
     return LoginService;
 }());
-LoginService = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [HttpClient,
-        Router])
-], LoginService);
 export { LoginService };
 //# sourceMappingURL=login.service.js.map

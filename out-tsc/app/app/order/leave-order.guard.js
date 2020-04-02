@@ -5,7 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Injectable } from '@angular/core';
-var LeaveOrderGuard = (function () {
+var LeaveOrderGuard = /** @class */ (function () {
     function LeaveOrderGuard() {
     }
     LeaveOrderGuard.prototype.canDeactivate = function (component, currentRoute, currentState) {
@@ -14,10 +14,10 @@ var LeaveOrderGuard = (function () {
         }
         return true;
     };
+    LeaveOrderGuard = __decorate([
+        Injectable()
+    ], LeaveOrderGuard);
     return LeaveOrderGuard;
 }());
-LeaveOrderGuard = __decorate([
-    Injectable()
-], LeaveOrderGuard);
 export { LeaveOrderGuard };
 //# sourceMappingURL=leave-order.guard.js.map

@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-var MenuItemComponent = (function () {
+var MenuItemComponent = /** @class */ (function () {
     function MenuItemComponent() {
         this.menuState = 'ready';
         this.add = new EventEmitter();
@@ -19,31 +19,31 @@ var MenuItemComponent = (function () {
     MenuItemComponent.prototype.emitAddEvent = function () {
         this.add.emit(this.menuItem);
     };
+    __decorate([
+        Input(),
+        __metadata("design:type", Object)
+    ], MenuItemComponent.prototype, "menuItem", void 0);
+    __decorate([
+        Output(),
+        __metadata("design:type", Object)
+    ], MenuItemComponent.prototype, "add", void 0);
+    MenuItemComponent = __decorate([
+        Component({
+            selector: 'mt-menu-item',
+            templateUrl: './menu-item.component.html',
+            animations: [
+                trigger('menuItemAppeared', [
+                    state('ready', style({ opacity: 1 })),
+                    transition('void => ready', [
+                        style({ opacity: 0, transform: 'translateY(-20px)' }),
+                        animate('300ms 0s ease-in')
+                    ])
+                ])
+            ]
+        }),
+        __metadata("design:paramtypes", [])
+    ], MenuItemComponent);
     return MenuItemComponent;
 }());
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], MenuItemComponent.prototype, "menuItem", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], MenuItemComponent.prototype, "add", void 0);
-MenuItemComponent = __decorate([
-    Component({
-        selector: 'mt-menu-item',
-        templateUrl: './menu-item.component.html',
-        animations: [
-            trigger('menuItemAppeared', [
-                state('ready', style({ opacity: 1 })),
-                transition('void => ready', [
-                    style({ opacity: 0, transform: 'translateY(-20px)' }),
-                    animate('300ms 0s ease-in')
-                ])
-            ])
-        ]
-    }),
-    __metadata("design:paramtypes", [])
-], MenuItemComponent);
 export { MenuItemComponent };
 //# sourceMappingURL=menu-item.component.js.map

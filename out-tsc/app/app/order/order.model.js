@@ -1,4 +1,4 @@
-var Order = (function () {
+var Order = /** @class */ (function () {
     function Order(address, number, optionalAddress, paymentOption, orderItems, id) {
         if (orderItems === void 0) { orderItems = []; }
         this.address = address;
@@ -10,7 +10,7 @@ var Order = (function () {
     }
     return Order;
 }());
-var OrderItem = (function () {
+var OrderItem = /** @class */ (function () {
     function OrderItem(quantity, menuId) {
         this.quantity = quantity;
         this.menuId = menuId;

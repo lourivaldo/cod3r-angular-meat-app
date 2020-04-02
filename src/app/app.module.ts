@@ -3,6 +3,10 @@ import {NgModule, LOCALE_ID, ErrorHandler} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {PreloadAllModules, RouterModule} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { registerLocaleData } from '@angular/common';
+
+import locatePt from '@angular/common/locales/pt';
+registerLocaleData(locatePt)
 
 import {ROUTES} from './app.routes';
 
@@ -53,7 +57,7 @@ import {AppErrorHandler} from './app.error-handler';
   ],
   providers: [
     // {provide: LocationStrategy, useClass: HashLocationStrategy},
-    {provide: LOCALE_ID, useValue: 'pt-BR'},
+    {provide: LOCALE_ID, useValue: 'pt'},
     {provide: ErrorHandler, useClass: AppErrorHandler},
   ],
   bootstrap: [AppComponent]

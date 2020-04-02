@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable, Injector } from '@angular/core';
 import { LoginService } from './login/login.service';
-var AuthInterceptor = (function () {
+var AuthInterceptor = /** @class */ (function () {
     function AuthInterceptor(injector) {
         this.injector = injector;
     }
@@ -20,11 +20,11 @@ var AuthInterceptor = (function () {
         }
         return next.handle(request);
     };
+    AuthInterceptor = __decorate([
+        Injectable(),
+        __metadata("design:paramtypes", [Injector])
+    ], AuthInterceptor);
     return AuthInterceptor;
 }());
-AuthInterceptor = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [Injector])
-], AuthInterceptor);
 export { AuthInterceptor };
 //# sourceMappingURL=auth.interceptor.js.map

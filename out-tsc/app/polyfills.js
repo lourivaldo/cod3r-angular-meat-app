@@ -16,7 +16,8 @@ import 'core-js/es6/set';
 import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
-import 'intl';
-import 'intl/locale-data/jsonp/pt-BR';
+// Remove by new angular version 6
+// import 'intl';
+// import 'intl/locale-data/jsonp/pt-BR';
 import 'web-animations-js/web-animations.min';
 //# sourceMappingURL=polyfills.js.map

@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { LoginService } from '../../secutiry/login/login.service';
-var UserDetailComponent = (function () {
+var UserDetailComponent = /** @class */ (function () {
     function UserDetailComponent(loginService) {
         this.loginService = loginService;
     }
@@ -27,14 +27,14 @@ var UserDetailComponent = (function () {
     UserDetailComponent.prototype.logout = function () {
         this.loginService.logout();
     };
+    UserDetailComponent = __decorate([
+        Component({
+            selector: 'mt-user-detail',
+            templateUrl: './user-detail.component.html',
+        }),
+        __metadata("design:paramtypes", [LoginService])
+    ], UserDetailComponent);
     return UserDetailComponent;
 }());
-UserDetailComponent = __decorate([
-    Component({
-        selector: 'mt-user-detail',
-        templateUrl: './user-detail.component.html',
-    }),
-    __metadata("design:paramtypes", [LoginService])
-], UserDetailComponent);
 export { UserDetailComponent };
 //# sourceMappingURL=user-detail.component.js.map

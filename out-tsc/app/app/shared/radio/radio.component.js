@@ -9,9 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-var RadioComponent = RadioComponent_1 = (function () {
+var RadioComponent = /** @class */ (function () {
     function RadioComponent() {
     }
+    RadioComponent_1 = RadioComponent;
     RadioComponent.prototype.ngOnInit = function () {
     };
     RadioComponent.prototype.setValue = function (value) {
@@ -28,26 +29,26 @@ var RadioComponent = RadioComponent_1 = (function () {
     RadioComponent.prototype.writeValue = function (obj) {
         this.value = obj;
     };
+    __decorate([
+        Input(),
+        __metadata("design:type", Array)
+    ], RadioComponent.prototype, "options", void 0);
+    RadioComponent = RadioComponent_1 = __decorate([
+        Component({
+            selector: 'mt-radio',
+            templateUrl: './radio.component.html',
+            providers: [
+                {
+                    provide: NG_VALUE_ACCESSOR,
+                    useExisting: forwardRef(function () { return RadioComponent_1; }),
+                    multi: true
+                }
+            ]
+        }),
+        __metadata("design:paramtypes", [])
+    ], RadioComponent);
     return RadioComponent;
+    var RadioComponent_1;
 }());
-__decorate([
-    Input(),
-    __metadata("design:type", Array)
-], RadioComponent.prototype, "options", void 0);
-RadioComponent = RadioComponent_1 = __decorate([
-    Component({
-        selector: 'mt-radio',
-        templateUrl: './radio.component.html',
-        providers: [
-            {
-                provide: NG_VALUE_ACCESSOR,
-                useExisting: forwardRef(function () { return RadioComponent_1; }),
-                multi: true
-            }
-        ]
-    }),
-    __metadata("design:paramtypes", [])
-], RadioComponent);
 export { RadioComponent };
-var RadioComponent_1;
 //# sourceMappingURL=radio.component.js.map

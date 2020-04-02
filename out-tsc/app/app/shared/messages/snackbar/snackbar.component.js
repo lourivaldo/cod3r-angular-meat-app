@@ -14,7 +14,7 @@ import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs';
-var SnackbarComponent = (function () {
+var SnackbarComponent = /** @class */ (function () {
     function SnackbarComponent(notificationService) {
         this.notificationService = notificationService;
         this.message = '';
@@ -33,29 +33,29 @@ var SnackbarComponent = (function () {
     SnackbarComponent.prototype.toggleSnack = function () {
         this.snackVisibility = this.snackVisibility == 'hidden' ? 'visible' : 'hidden';
     };
+    SnackbarComponent = __decorate([
+        Component({
+            selector: 'mt-snackbar',
+            templateUrl: './snackbar.component.html',
+            styleUrls: ['./snackbar.component.css'],
+            animations: [
+                trigger('snack-visibility', [
+                    state('hidden', style({
+                        opacity: 0,
+                        bottom: '0'
+                    })),
+                    state('visible', style({
+                        opacity: 1,
+                        bottom: '30px'
+                    })),
+                    transition('hidden => visible', animate('500ms 0s ease-in')),
+                    transition('visible => hidden', animate('500ms 0s ease-out')),
+                ])
+            ]
+        }),
+        __metadata("design:paramtypes", [NotificationService])
+    ], SnackbarComponent);
     return SnackbarComponent;
 }());
-SnackbarComponent = __decorate([
-    Component({
-        selector: 'mt-snackbar',
-        templateUrl: './snackbar.component.html',
-        styleUrls: ['./snackbar.component.css'],
-        animations: [
-            trigger('snack-visibility', [
-                state('hidden', style({
-                    opacity: 0,
-                    bottom: '0'
-                })),
-                state('visible', style({
-                    opacity: 1,
-                    bottom: '30px'
-                })),
-                transition('hidden => visible', animate('500ms 0s ease-in')),
-                transition('visible => hidden', animate('500ms 0s ease-out')),
-            ])
-        ]
-    }),
-    __metadata("design:paramtypes", [NotificationService])
-], SnackbarComponent);
 export { SnackbarComponent };
 //# sourceMappingURL=snackbar.component.js.map

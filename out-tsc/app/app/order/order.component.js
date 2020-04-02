@@ -12,12 +12,11 @@ import { OrderService } from './order.service';
 import { OrderItem } from './order.model';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/do';
-import { FormBuilder, Validators } from '@angular/forms';
-var OrderComponent = OrderComponent_1 = (function () {
-    function OrderComponent(orderService, router, formBuilder) {
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+var OrderComponent = /** @class */ (function () {
+    function OrderComponent(orderService, router) {
         this.orderService = orderService;
         this.router = router;
-        this.formBuilder = formBuilder;
         this.emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
         this.numberPattern = /^[0-9]*$/;
         this.delivery = 8;
@@ -27,16 +26,17 @@ var OrderComponent = OrderComponent_1 = (function () {
             { label: 'Cartão Refeição', value: 'REF' },
         ];
     }
+    OrderComponent_1 = OrderComponent;
     OrderComponent.prototype.ngOnInit = function () {
-        this.orderForm = this.formBuilder.group({
-            name: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
-            email: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
-            emailConfirmation: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
-            address: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
-            number: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
-            optionalAddress: this.formBuilder.control(''),
-            paymentOption: this.formBuilder.control('', [Validators.required]),
-        }, { validator: OrderComponent_1.equalsTo });
+        this.orderForm = new FormGroup({
+            name: new FormControl('', { validators: [Validators.required, Validators.minLength(5)] }),
+            email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
+            emailConfirmation: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
+            address: new FormControl('', [Validators.required, Validators.minLength(5)]),
+            number: new FormControl('', [Validators.required, Validators.pattern(this.numberPattern)]),
+            optionalAddress: new FormControl(''),
+            paymentOption: new FormControl('', [Validators.required]),
+        }, { validators: OrderComponent_1.equalsTo, updateOn: 'blur' });
     };
     OrderComponent.equalsTo = function (group) {
         var email = group.get('email');
@@ -79,17 +79,16 @@ var OrderComponent = OrderComponent_1 = (function () {
     OrderComponent.prototype.isOrderCompleted = function () {
         return this.orderId !== undefined;
     };
+    OrderComponent = OrderComponent_1 = __decorate([
+        Component({
+            selector: 'mt-order',
+            templateUrl: './order.component.html',
+        }),
+        __metadata("design:paramtypes", [OrderService,
+            Router])
+    ], OrderComponent);
     return OrderComponent;
+    var OrderComponent_1;
 }());
-OrderComponent = OrderComponent_1 = __decorate([
-    Component({
-        selector: 'mt-order',
-        templateUrl: './order.component.html',
-    }),
-    __metadata("design:paramtypes", [OrderService,
-        Router,
-        FormBuilder])
-], OrderComponent);
 export { OrderComponent };
-var OrderComponent_1;
 //# sourceMappingURL=order.component.js.map

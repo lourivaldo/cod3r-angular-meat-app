@@ -12,7 +12,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { MEAT_API } from '../app.api';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-var RestaurantsService = (function () {
+var RestaurantsService = /** @class */ (function () {
     function RestaurantsService(http) {
         this.http = http;
     }
@@ -32,11 +32,11 @@ var RestaurantsService = (function () {
     RestaurantsService.prototype.menuOfRestaurant = function (id) {
         return this.http.get(MEAT_API + "/restaurants/" + id + "/menu");
     };
+    RestaurantsService = __decorate([
+        Injectable(),
+        __metadata("design:paramtypes", [HttpClient])
+    ], RestaurantsService);
     return RestaurantsService;
 }());
-RestaurantsService = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [HttpClient])
-], RestaurantsService);
 export { RestaurantsService };
 //# sourceMappingURL=restaurants.service.js.map

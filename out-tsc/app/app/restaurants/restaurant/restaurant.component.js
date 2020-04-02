@@ -9,33 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-var RestaurantComponent = (function () {
+var RestaurantComponent = /** @class */ (function () {
     function RestaurantComponent() {
         this.restaurantState = 'ready';
     }
     RestaurantComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        Input(),
+        __metadata("design:type", Object)
+    ], RestaurantComponent.prototype, "restaurant", void 0);
+    RestaurantComponent = __decorate([
+        Component({
+            selector: 'mt-restaurant',
+            templateUrl: './restaurant.component.html',
+            animations: [
+                trigger('restaurantAppeared', [
+                    state('ready', style({ opacity: 1 })),
+                    transition('void => ready', [
+                        style({ opacity: 0, transform: 'translate(-30px, -10px)' }),
+                        animate('300ms 0s ease-in-out')
+                    ])
+                ])
+            ]
+        }),
+        __metadata("design:paramtypes", [])
+    ], RestaurantComponent);
     return RestaurantComponent;
 }());
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], RestaurantComponent.prototype, "restaurant", void 0);
-RestaurantComponent = __decorate([
-    Component({
-        selector: 'mt-restaurant',
-        templateUrl: './restaurant.component.html',
-        animations: [
-            trigger('restaurantAppeared', [
-                state('ready', style({ opacity: 1 })),
-                transition('void => ready', [
-                    style({ opacity: 0, transform: 'translate(-30px, -10px)' }),
-                    animate('300ms 0s ease-in-out')
-                ])
-            ])
-        ]
-    }),
-    __metadata("design:paramtypes", [])
-], RestaurantComponent);
 export { RestaurantComponent };
 //# sourceMappingURL=restaurant.component.js.map

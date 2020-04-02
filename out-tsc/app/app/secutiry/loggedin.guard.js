@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { LoginService } from './login/login.service';
 import { Injectable } from '@angular/core';
-var LoggedInGuard = (function () {
+var LoggedInGuard = /** @class */ (function () {
     function LoggedInGuard(loginService) {
         this.loginService = loginService;
     }
@@ -28,11 +28,11 @@ var LoggedInGuard = (function () {
         console.log('canActivate');
         return this.checkAuthentication(route.routeConfig.path);
     };
+    LoggedInGuard = __decorate([
+        Injectable(),
+        __metadata("design:paramtypes", [LoginService])
+    ], LoggedInGuard);
     return LoggedInGuard;
 }());
-LoggedInGuard = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [LoginService])
-], LoggedInGuard);
 export { LoggedInGuard };
 //# sourceMappingURL=loggedin.guard.js.map

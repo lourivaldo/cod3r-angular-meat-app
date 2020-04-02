@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-var OrderItemsComponent = (function () {
+var OrderItemsComponent = /** @class */ (function () {
     function OrderItemsComponent() {
         this.increaseQuantity = new EventEmitter();
         this.decreaseQuantity = new EventEmitter();
@@ -25,30 +25,30 @@ var OrderItemsComponent = (function () {
     OrderItemsComponent.prototype.emitRemove = function (item) {
         this.remove.emit(item);
     };
+    __decorate([
+        Input(),
+        __metadata("design:type", Array)
+    ], OrderItemsComponent.prototype, "items", void 0);
+    __decorate([
+        Output(),
+        __metadata("design:type", Object)
+    ], OrderItemsComponent.prototype, "increaseQuantity", void 0);
+    __decorate([
+        Output(),
+        __metadata("design:type", Object)
+    ], OrderItemsComponent.prototype, "decreaseQuantity", void 0);
+    __decorate([
+        Output(),
+        __metadata("design:type", Object)
+    ], OrderItemsComponent.prototype, "remove", void 0);
+    OrderItemsComponent = __decorate([
+        Component({
+            selector: 'mt-order-items',
+            templateUrl: './order-items.component.html',
+        }),
+        __metadata("design:paramtypes", [])
+    ], OrderItemsComponent);
     return OrderItemsComponent;
 }());
-__decorate([
-    Input(),
-    __metadata("design:type", Array)
-], OrderItemsComponent.prototype, "items", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], OrderItemsComponent.prototype, "increaseQuantity", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], OrderItemsComponent.prototype, "decreaseQuantity", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], OrderItemsComponent.prototype, "remove", void 0);
-OrderItemsComponent = __decorate([
-    Component({
-        selector: 'mt-order-items',
-        templateUrl: './order-items.component.html',
-    }),
-    __metadata("design:paramtypes", [])
-], OrderItemsComponent);
 export { OrderItemsComponent };
 //# sourceMappingURL=order-items.component.js.map

@@ -12,7 +12,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { NotificationService } from '../../shared/messages/notification.service';
 import { ActivatedRoute, Router } from '@angular/router';
-var LoginComponent = (function () {
+var LoginComponent = /** @class */ (function () {
     function LoginComponent(fb, loginService, notificationService, activatedRoute, router) {
         this.fb = fb;
         this.loginService = loginService;
@@ -35,18 +35,18 @@ var LoginComponent = (function () {
             _this.router.navigate([atob(_this.navigateTo)]);
         });
     };
+    LoginComponent = __decorate([
+        Component({
+            selector: 'mt-login',
+            templateUrl: './login.component.html',
+        }),
+        __metadata("design:paramtypes", [FormBuilder,
+            LoginService,
+            NotificationService,
+            ActivatedRoute,
+            Router])
+    ], LoginComponent);
     return LoginComponent;
 }());
-LoginComponent = __decorate([
-    Component({
-        selector: 'mt-login',
-        templateUrl: './login.component.html',
-    }),
-    __metadata("design:paramtypes", [FormBuilder,
-        LoginService,
-        NotificationService,
-        ActivatedRoute,
-        Router])
-], LoginComponent);
 export { LoginComponent };
 //# sourceMappingURL=login.component.js.map

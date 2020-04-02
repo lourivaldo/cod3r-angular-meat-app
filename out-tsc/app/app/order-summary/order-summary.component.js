@@ -8,19 +8,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-var OrderSummaryComponent = (function () {
+var OrderSummaryComponent = /** @class */ (function () {
     function OrderSummaryComponent() {
     }
     OrderSummaryComponent.prototype.ngOnInit = function () {
     };
+    OrderSummaryComponent = __decorate([
+        Component({
+            selector: 'mt-order-summary',
+            templateUrl: './order-summary.component.html',
+        }),
+        __metadata("design:paramtypes", [])
+    ], OrderSummaryComponent);
     return OrderSummaryComponent;
 }());
-OrderSummaryComponent = __decorate([
-    Component({
-        selector: 'mt-order-summary',
-        templateUrl: './order-summary.component.html',
-    }),
-    __metadata("design:paramtypes", [])
-], OrderSummaryComponent);
 export { OrderSummaryComponent };
 //# sourceMappingURL=order-summary.component.js.map
