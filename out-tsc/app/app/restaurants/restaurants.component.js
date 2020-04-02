@@ -10,13 +10,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from '@angular/core';
 import { RestaurantsService } from './restaurants.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { FormBuilder } from '@angular/forms';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/observable/from';
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs';
 var RestaurantsComponent = (function () {
-    function RestaurantsComponent(restaurantsService) {
+    function RestaurantsComponent(restaurantsService, fb) {
         this.restaurantsService = restaurantsService;
+        this.fb = fb;
         this.searchBarState = 'hidden';
     }
     RestaurantsComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.searchControl = this.fb.control('');
+        this.searchForm = this.fb.group({
+            searchControl: this.searchControl,
+        });
+        this.searchControl.valueChanges
+            .debounceTime(500)
+            .distinctUntilChanged()
+            .switchMap(function (searchTerm) {
+            return _this.restaurantsService
+                .restaurants(searchTerm)
+                .catch(function (error) { return Observable.from([]); });
+        })
+            .subscribe(function (restaurants) { return _this.restaurants = restaurants; });
         this.restaurantsService.restaurants()
             .subscribe(function (restaurants) {
             _this.restaurants = restaurants;
@@ -46,7 +68,7 @@ RestaurantsComponent = __decorate([
             ])
         ]
     }),
-    __metadata("design:paramtypes", [RestaurantsService])
+    __metadata("design:paramtypes", [RestaurantsService, FormBuilder])
 ], RestaurantsComponent);
 export { RestaurantsComponent };
 //# sourceMappingURL=restaurants.component.js.map
