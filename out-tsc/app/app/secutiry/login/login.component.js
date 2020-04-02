@@ -40,13 +40,11 @@ var LoginComponent = /** @class */ (function () {
             selector: 'mt-login',
             templateUrl: './login.component.html',
         }),
-        __metadata("design:paramtypes", [FormBuilder,
-            LoginService,
-            NotificationService,
-            ActivatedRoute,
-            Router])
+        __metadata("design:paramtypes", [typeof (_a = typeof FormBuilder !== "undefined" && FormBuilder) === "function" && _a || Object, LoginService,
+            NotificationService, typeof (_b = typeof ActivatedRoute !== "undefined" && ActivatedRoute) === "function" && _b || Object, typeof (_c = typeof Router !== "undefined" && Router) === "function" && _c || Object])
     ], LoginComponent);
     return LoginComponent;
+    var _a, _b, _c;
 }());
 export { LoginComponent };
 //# sourceMappingURL=login.component.js.map

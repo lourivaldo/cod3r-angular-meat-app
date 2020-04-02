@@ -4,7 +4,7 @@ import {OrderService} from './order.service';
 import {CartItem} from '../restaurant-detail/shopping-cart/cart-item.model';
 import {Order, OrderItem} from './order.model';
 import {Router} from '@angular/router';
-import 'rxjs/add/operator/do';
+import {tap} from 'rxjs/operators';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -84,7 +84,7 @@ export class OrderComponent implements OnInit {
 
     this.orderService
       .checkOrder(order)
-      .do((orderId) => this.orderId = orderId)
+      .pipe(tap((orderId) => this.orderId = orderId))
       .subscribe((orderId: string) => {
         this.orderService.clear();
         this.router.navigate(['/order-summary']);

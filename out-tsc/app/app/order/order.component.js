@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
 import { OrderService } from './order.service';
 import { OrderItem } from './order.model';
 import { Router } from '@angular/router';
-import 'rxjs/add/operator/do';
+import { tap } from 'rxjs/operators';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 var OrderComponent = /** @class */ (function () {
     function OrderComponent(orderService, router) {
@@ -70,7 +70,7 @@ var OrderComponent = /** @class */ (function () {
             .map(function (item) { return new OrderItem(item.quantity, item.menuItem.id); });
         this.orderService
             .checkOrder(order)
-            .do(function (orderId) { return _this.orderId = orderId; })
+            .pipe(tap(function (orderId) { return _this.orderId = orderId; }))
             .subscribe(function (orderId) {
             _this.orderService.clear();
             _this.router.navigate(['/order-summary']);
@@ -84,11 +84,10 @@ var OrderComponent = /** @class */ (function () {
             selector: 'mt-order',
             templateUrl: './order.component.html',
         }),
-        __metadata("design:paramtypes", [OrderService,
-            Router])
+        __metadata("design:paramtypes", [OrderService, typeof (_a = typeof Router !== "undefined" && Router) === "function" && _a || Object])
     ], OrderComponent);
     return OrderComponent;
-    var OrderComponent_1;
+    var OrderComponent_1, _a;
 }());
 export { OrderComponent };
 //# sourceMappingURL=order.component.js.map

@@ -24,10 +24,10 @@ var ReviewsComponent = /** @class */ (function () {
             selector: 'mt-reviews',
             templateUrl: './reviews.component.html',
         }),
-        __metadata("design:paramtypes", [RestaurantsService,
-            ActivatedRoute])
+        __metadata("design:paramtypes", [RestaurantsService, typeof (_a = typeof ActivatedRoute !== "undefined" && ActivatedRoute) === "function" && _a || Object])
     ], ReviewsComponent);
     return ReviewsComponent;
+    var _a;
 }());
 export { ReviewsComponent };
 //# sourceMappingURL=reviews.component.js.map

@@ -26,10 +26,10 @@ var RestaurantDetailComponent = /** @class */ (function () {
             selector: 'mt-restaurant-detail',
             templateUrl: './restaurant-detail.component.html',
         }),
-        __metadata("design:paramtypes", [RestaurantsService,
-            ActivatedRoute])
+        __metadata("design:paramtypes", [RestaurantsService, typeof (_a = typeof ActivatedRoute !== "undefined" && ActivatedRoute) === "function" && _a || Object])
     ], RestaurantDetailComponent);
     return RestaurantDetailComponent;
+    var _a;
 }());
 export { RestaurantDetailComponent };
 //# sourceMappingURL=restaurant-detail.component.js.map

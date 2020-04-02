@@ -21,6 +21,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, Injectable, Injector, NgZone } from '@angular/core';
 import { NotificationService } from './shared/messages/notification.service';
 import { LoginService } from './secutiry/login/login.service';
+// import {throwError} from 'rxjs/operators';
 var AppErrorHandler = /** @class */ (function (_super) {
     __extends(AppErrorHandler, _super);
     function AppErrorHandler(notificationService, injector, ngZone) {
@@ -52,11 +53,10 @@ var AppErrorHandler = /** @class */ (function (_super) {
     };
     AppErrorHandler = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [NotificationService,
-            Injector,
-            NgZone])
+        __metadata("design:paramtypes", [NotificationService, typeof (_a = typeof Injector !== "undefined" && Injector) === "function" && _a || Object, typeof (_b = typeof NgZone !== "undefined" && NgZone) === "function" && _b || Object])
     ], AppErrorHandler);
     return AppErrorHandler;
+    var _a, _b;
 }(ErrorHandler));
 export { AppErrorHandler };
 //# sourceMappingURL=app.error-handler.js.map

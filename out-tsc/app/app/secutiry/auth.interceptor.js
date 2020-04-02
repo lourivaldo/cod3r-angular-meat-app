@@ -22,9 +22,10 @@ var AuthInterceptor = /** @class */ (function () {
     };
     AuthInterceptor = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [Injector])
+        __metadata("design:paramtypes", [typeof (_a = typeof Injector !== "undefined" && Injector) === "function" && _a || Object])
     ], AuthInterceptor);
     return AuthInterceptor;
+    var _a;
 }());
 export { AuthInterceptor };
 //# sourceMappingURL=auth.interceptor.js.map

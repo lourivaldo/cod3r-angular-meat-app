@@ -26,10 +26,10 @@ var MenuComponent = /** @class */ (function () {
             selector: 'mt-menu',
             templateUrl: './menu.component.html',
         }),
-        __metadata("design:paramtypes", [RestaurantsService,
-            ActivatedRoute])
+        __metadata("design:paramtypes", [RestaurantsService, typeof (_a = typeof ActivatedRoute !== "undefined" && ActivatedRoute) === "function" && _a || Object])
     ], MenuComponent);
     return MenuComponent;
+    var _a;
 }());
 export { MenuComponent };
 //# sourceMappingURL=menu.component.js.map

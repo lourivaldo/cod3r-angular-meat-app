@@ -41,11 +41,11 @@ var InputComponent = /** @class */ (function () {
     ], InputComponent.prototype, "showTip", void 0);
     __decorate([
         ContentChild(NgModel),
-        __metadata("design:type", NgModel)
+        __metadata("design:type", typeof (_a = typeof NgModel !== "undefined" && NgModel) === "function" && _a || Object)
     ], InputComponent.prototype, "model", void 0);
     __decorate([
         ContentChild(FormControlName),
-        __metadata("design:type", FormControlName)
+        __metadata("design:type", typeof (_b = typeof FormControlName !== "undefined" && FormControlName) === "function" && _b || Object)
     ], InputComponent.prototype, "control", void 0);
     InputComponent = __decorate([
         Component({
@@ -55,6 +55,7 @@ var InputComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], InputComponent);
     return InputComponent;
+    var _a, _b;
 }());
 export { InputComponent };
 //# sourceMappingURL=input.component.js.map

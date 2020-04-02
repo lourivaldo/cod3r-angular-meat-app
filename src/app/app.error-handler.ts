@@ -2,6 +2,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {ErrorHandler, Injectable, Injector, NgZone} from '@angular/core';
 import {NotificationService} from './shared/messages/notification.service';
 import {LoginService} from './secutiry/login/login.service';
+// import {throwError} from 'rxjs/operators';
 
 @Injectable()
 export class AppErrorHandler extends ErrorHandler {

@@ -9,8 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/filter';
+import { tap, filter } from 'rxjs/operators';
 import { MEAT_API } from '../../app.api';
 import { NavigationEnd, Router } from '@angular/router';
 var LoginService = /** @class */ (function () {
@@ -19,7 +18,7 @@ var LoginService = /** @class */ (function () {
         this.http = http;
         this.router = router;
         this.router.events
-            .filter(function (e) { return e instanceof NavigationEnd; })
+            .pipe(filter(function (e) { return e instanceof NavigationEnd; }))
             .subscribe(function (e) { return _this.lastUrl = e.url; });
     }
     LoginService.prototype.isLoggedIn = function () {
@@ -29,7 +28,7 @@ var LoginService = /** @class */ (function () {
         var _this = this;
         return this.http
             .post(MEAT_API + "/login", { email: email, password: password })
-            .do(function (user) { return _this.user = user; });
+            .pipe(tap(function (user) { return _this.user = user; }));
     };
     LoginService.prototype.logout = function () {
         this.user = undefined;
@@ -41,10 +40,10 @@ var LoginService = /** @class */ (function () {
     };
     LoginService = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [HttpClient,
-            Router])
+        __metadata("design:paramtypes", [typeof (_a = typeof HttpClient !== "undefined" && HttpClient) === "function" && _a || Object, typeof (_b = typeof Router !== "undefined" && Router) === "function" && _b || Object])
     ], LoginService);
     return LoginService;
+    var _a, _b;
 }());
 export { LoginService };
 //# sourceMappingURL=login.service.js.map

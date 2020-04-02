@@ -11,13 +11,8 @@ import { Component } from '@angular/core';
 import { RestaurantsService } from './restaurants.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { FormBuilder } from '@angular/forms';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/observable/from';
-import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs';
+import { switchMap, debounceTime, distinctUntilChanged, catchError } from 'rxjs/operators';
+import { from } from 'rxjs';
 var RestaurantsComponent = /** @class */ (function () {
     function RestaurantsComponent(restaurantsService, fb) {
         this.restaurantsService = restaurantsService;
@@ -31,13 +26,11 @@ var RestaurantsComponent = /** @class */ (function () {
             searchControl: this.searchControl,
         });
         this.searchControl.valueChanges
-            .debounceTime(500)
-            .distinctUntilChanged()
-            .switchMap(function (searchTerm) {
+            .pipe(debounceTime(500), distinctUntilChanged(), switchMap(function (searchTerm) {
             return _this.restaurantsService
                 .restaurants(searchTerm)
-                .catch(function (error) { return Observable.from([]); });
-        })
+                .pipe(catchError(function (error) { return from([]); }));
+        }))
             .subscribe(function (restaurants) { return _this.restaurants = restaurants; });
         this.restaurantsService.restaurants()
             .subscribe(function (restaurants) {
@@ -66,9 +59,10 @@ var RestaurantsComponent = /** @class */ (function () {
                 ])
             ]
         }),
-        __metadata("design:paramtypes", [RestaurantsService, FormBuilder])
+        __metadata("design:paramtypes", [RestaurantsService, typeof (_a = typeof FormBuilder !== "undefined" && FormBuilder) === "function" && _a || Object])
     ], RestaurantsComponent);
     return RestaurantsComponent;
+    var _a;
 }());
 export { RestaurantsComponent };
 //# sourceMappingURL=restaurants.component.js.map

@@ -10,8 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { MEAT_API } from '../app.api';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 var RestaurantsService = /** @class */ (function () {
     function RestaurantsService(http) {
         this.http = http;
@@ -34,9 +32,10 @@ var RestaurantsService = /** @class */ (function () {
     };
     RestaurantsService = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [HttpClient])
+        __metadata("design:paramtypes", [typeof (_a = typeof HttpClient !== "undefined" && HttpClient) === "function" && _a || Object])
     ], RestaurantsService);
     return RestaurantsService;
+    var _a;
 }());
 export { RestaurantsService };
 //# sourceMappingURL=restaurants.service.js.map
